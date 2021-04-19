@@ -1,0 +1,106 @@
+
+<form class="form" (ngSubmit)="submit()">
+  <div class="steps">
+    <div class="step" *ngFor="let step of steps; index as i;" [ngClass]='getClassName(step.Status)'>
+      <div class="step__point">
+        <div class="pre-line"></div>
+        <div class="point">{{i + 1}}</div>
+        <div class="post-line"></div>
+      </div>
+      <div class="step__header" [innerHtml]='step.Header'></div>
+    </div>
+  </div>
+
+  <div *ngIf="currentStep == 1">
+    <div class="form-group">
+      <input type="button" value="Genre 1" class="form-control">
+      <input type="button" value="Genre 2" class="form-control">
+      <input type="button" value="Genre 3" class="form-control">
+      <input type="button" value="Genre 4" class="form-control">
+      <input type="button" value="Genre 5" class="form-control">
+      <input type="button" value="Genre 6" class="form-control">
+      <input type="button" value="Genre 7" class="form-control">
+      <input type="button" value="Genre 8" class="form-control">
+    </div>
+  </div>
+
+  <div *ngIf="currentStep == 2">
+    <div class="form-group">
+      <input type="button" value="Subgenre 1" class="form-control">
+      <input type="button" value="Subgenre 2" class="form-control">
+      <input type="button" value="Subgenre 3" class="form-control">
+      <input type="button" value="Subgenre 4" class="form-control">
+      <input type="button" value="Subgenre 5" class="form-control">
+      <input type="button" value="Subgenre 6" class="form-control">
+      <input type="button" value="Subgenre 7" class="form-control">
+      <input type="button" value="Add new" class="form-control">
+    </div>
+  </div>
+
+  <div *ngIf="currentStep == 3">
+    <div class="form-group">
+      <input type="text" class="form-control__check">
+      <div class="form-group__check">
+        <input type="checkbox" id="add" class="form-control__add">
+        <label for="add" class="form-control__add">Description is required for this subgenre</label>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="currentStep == 4">
+    <div class="form-group__info">
+      <label for="book">Book title</label>
+      <input type="text" class="form-control__info" id="book">
+    </div>
+    <div class="form-group__info">
+      <label for="author">Author</label>
+      <select id="author" class="form-control__info">
+        <option value=""></option>
+      </select>
+    </div>
+    <div class="form-group__info">
+      <label for="isbn">ISBN</label>
+      <input type="text" class="form-control__info" id="isbn">
+    </div>
+    <div class="form-group__info">
+      <label for="publisher">Publisher</label>
+      <select id="publisher" class="form-control__info">
+        <option value=""></option>
+      </select>
+    </div>
+    <div class="form-group__info">
+      <label for="date">Date published</label>
+      <input type="date" id="date" class="form-control__info">
+    </div>
+    <div class="form-group__info">
+      <label for="number">Number of pages</label>
+      <input type="number" id="number" class="form-control__info">
+    </div>
+    <div class="form-group__info">
+      <label for="format">Format</label>
+      <select id="format" class="form-control__info">
+        <option value=""></option>
+      </select>
+    </div>
+    <div class="form-group__info">
+      <label for="edition">Edition</label>
+      <input type="text" id="edition" class="form-control__info">
+    </div>
+    <div class="form-group__info">
+      <label for="language">Edition language</label>
+      <select id="language" class="form-control__info">
+        <option value=""></option>
+      </select>
+    </div>
+    <div class="form-group__info">
+      <label for="description">Description</label>
+      <textarea id="description" class="form-group__info-description"></textarea>
+    </div>
+  </div>
+  <div class="form-group__btn">
+    <button class="btn" type="button" *ngIf="currentStep != 1" (click)="back()">back</button>
+    <button class="btn" type="submit" *ngIf="currentStep != 4">next</button>
+    <button class="btn" type="submit" *ngIf="currentStep == 4">add</button>
+  </div>
+</form>
+

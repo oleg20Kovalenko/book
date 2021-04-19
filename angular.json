@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "wizard"
+  "defaultProject": "wizard",
+  "cli": {
+    "analytics": false
+  }
 }
